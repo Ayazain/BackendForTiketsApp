@@ -32,7 +32,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Origin",
-    "https://64b0886db3c8bd5893bb196a--gentle-croissant-e944c8.netlify.app/"
+    "https://64b0886db3c8bd5893bb196a--gentle-croissant-e944c8.netlify.app"
   );
   if (req.method === "OPTIONS") {
     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
