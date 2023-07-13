@@ -23,21 +23,24 @@ const {
 } = require("./utils/namespace.util");
 
 // HANLDE CORS
-app.use(cors());
-// app.use((req, res, next) => {
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-//   );
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   res.header("Access-Control-Allow-Origin", "*");
-//   if (req.method === "OPTIONS") {
-//     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-//     return res.status(200).json({});
-//   }
 
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://64b0886db3c8bd5893bb196a--gentle-croissant-e944c8.netlify.app/"
+  );
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+    return res.status(200).json({});
+  }
+
+  next();
+});
 
 // EXPRESS FEATURES AND SETTINGS
 app.use(cookieParser(config.server.cookie.secret));
